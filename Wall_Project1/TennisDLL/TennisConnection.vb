@@ -9,7 +9,7 @@ Public Class TennisConnection
     Dim count As Integer
 
     Public Function loadConnect()
-        Connection = New SqlConnection("Server=cstnt.tstc.edu;Database = ITSW1307;User Id=mawall;password = 1175037")
+        Connection = New SqlConnection(" ")
         Connection.Open()
 
         Command = New SqlCommand("Select Brand, Name, Price, Stock, Description from wallM_Project1.dbo.Inventory", Connection)
