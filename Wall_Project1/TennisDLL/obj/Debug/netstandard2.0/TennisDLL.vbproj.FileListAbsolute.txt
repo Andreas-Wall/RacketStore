@@ -1,0 +1,4 @@
+C:\Users\Owner\Desktop\TennisDLL\obj\Debug\netstandard2.0\TennisDLL.vbprojAssemblyReference.cache
+C:\Users\Owner\Desktop\TennisDLL\obj\Debug\netstandard2.0\TennisDLL.vbproj.CoreCompileInputs.cache
+C:\Users\Owner\Desktop\TennisDLL\obj\Debug\netstandard2.0\TennisDLL.AssemblyInfoInputs.cache
+C:\Users\Owner\Desktop\TennisDLL\obj\Debug\netstandard2.0\TennisDLL.AssemblyInfo.vb
