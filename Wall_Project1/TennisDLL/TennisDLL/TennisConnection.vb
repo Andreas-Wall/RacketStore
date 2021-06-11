@@ -11,14 +11,14 @@ Public Class TennisConnection
     Dim Table As DataTable
     Dim datareader As SqlDataReader
     Public Function loadConnect()
-        Connection = New SqlConnection("Server=cstnt.tstc.edu;Database = ITSW1307;User Id=mawall;password = 1175037")
+        Connection = New SqlConnection(" ")
         Connection.Open()
         Command = New SqlCommand("Select Brand, Name, Price, Stock, Description from wallM_Project1.dbo.Inventory", Connection)
         Adapter = New SqlDataAdapter()
         Adapter.SelectCommand = Command
     End Function
     Public Function custLogin(user As String, pass As String) As Boolean
-        Connection = New SqlConnection("Server=cstnt.tstc.edu;Database = ITSW1307;User Id=mawall;password = 1175037")
+        Connection = New SqlConnection("")
         Connection.Open()
         Command = New SqlCommand("select Email, (cast(CustomerID as nvarchar) + (FirstName + LastName)) from wallM_Project1.dbo.Customers where Email = '" + user + "' and (cast(CustomerID as nvarchar) + (FirstName + LastName)) ='" + pass + "'", Connection)
 
@@ -44,7 +44,7 @@ Public Class TennisConnection
         datareader.Close()
     End Function
     Public Function addCust(first As String, last As String, address As String, email As String) As Boolean
-        Connection = New SqlConnection("Server=cstnt.tstc.edu;Database = ITSW1307;User Id=mawall;password = 1175037")
+        Connection = New SqlConnection("")
         Connection.Open()
         Try
             Command = New SqlCommand("insert into wallM_Project1.dbo.Customers values ('" + first + "','" + last + "','" + address + "','" + email + "')", Connection)
@@ -65,12 +65,12 @@ Public Class TennisConnection
         Message = New MailMessage()
         smtp = New SmtpClient()
         Dim smtpServer As String = ""
-        Dim email As String = "mawall@mymail.tstc.com"
-        Dim pass As String = "dTi2uels"
+        Dim email As String = " "
+        Dim pass As String = " "
         Dim user As String
         Dim password As String
 
-        Connection = New SqlConnection("Server=cstnt.tstc.edu;Database = ITSW1307;User Id=mawall;password = 1175037")
+        Connection = New SqlConnection("")
         Connection.Open()
         Command = New SqlCommand("select Email, (cast(CustomerID as nvarchar) + (FirstName + LastName)) from wallM_Project1.dbo.Customers where Email = '" + customer + "'", Connection)
         datareader = Command.ExecuteReader()
@@ -118,21 +118,21 @@ Public Class TennisConnection
     End Function
 
     Public Function cart()
-        Connection = New SqlConnection("Server=cstnt.tstc.edu;Database = ITSW1307;User Id=mawall;password = 1175037")
+        Connection = New SqlConnection("")
         Connection.Open()
         Command = New SqlCommand("Select * from wallM_Project1.dbo.cart", Connection)
         Adapter = New SqlDataAdapter()
         Adapter.SelectCommand = Command
     End Function
     Public Function details()
-        Connection = New SqlConnection("Server=cstnt.tstc.edu;Database = ITSW1307;User Id=mawall;password = 1175037")
+        Connection = New SqlConnection("")
         Connection.Open()
         Command = New SqlCommand("Select Brand, Name, Price, Stock from wallM_Project1.dbo.Inventory", Connection)
         Adapter = New SqlDataAdapter()
         Adapter.SelectCommand = Command
     End Function
     Public Function clearCart()
-        Connection = New SqlConnection("Server=cstnt.tstc.edu;Database = ITSW1307;User Id=mawall;password = 1175037")
+        Connection = New SqlConnection("7")
         Connection.Open()
         Command = New SqlCommand("Delete from wallM_Project1.dbo.cart")
         Adapter = New SqlDataAdapter()
@@ -140,7 +140,7 @@ Public Class TennisConnection
     End Function
 
     Public Function AddCart(brand As String, name As String, price As Decimal)
-        Connection = New SqlConnection("Server=cstnt.tstc.edu;Database = ITSW1307;User Id=mawall;password = 1175037")
+        Connection = New SqlConnection(" ")
         Connection.Open()
         Command = New SqlCommand("Insert into wallM_Project1.dbo.cart(Brand, Name, Price)values(@Brand, @Name, @Price)", Connection)
         Command.Parameters.AddWithValue("@Brand", brand)
@@ -152,7 +152,7 @@ Public Class TennisConnection
         Command.Dispose()
     End Function
     Public Function StockUpdate(stock As Integer, name As String)
-        Connection = New SqlConnection("Server=cstnt.tstc.edu;Database = ITSW1307;User Id=mawall;password = 1175037")
+        Connection = New SqlConnection(" ")
         Connection.Open()
         Try
             Command = New SqlCommand("update wallM_Project1.dbo.Inventory set  Stock = " + stock.ToString + " where name ='" + name + "'", Connection)
